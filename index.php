@@ -60,13 +60,6 @@
   Name: <input type="text" id="findbyName" name="findbyName"><br>
   </form>
   <button id="btnFindClient">Find Client</button>   
-  
-  
-  
-   <form>
-  Example Name: <input type="text" id="findbyName_example" name="findbyName_example"><br>
-  </form>
-   
 	
 	   
 	 <!--   <table class="userdata_search" border="1">

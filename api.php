@@ -84,12 +84,13 @@ function addClient() {
 		$stmt->execute();
 		$client->id = $db->lastInsertId();
 		$db = null;
-		echo "ok inserted";
-		echo json_encode($client); 
+		/* echo "ok inserted"; */ // EMPODIZEI TO JSON STIN JQUERY PROSEKSE TO
+		 echo json_encode($client); 
 	} catch(PDOException $e) {
 		//error_log($e->getMessage(), 3, '/var/tmp/php.log');
 		echo '{"error":{"text":'. $e->getMessage() .'}}'; 
-	}
+	} 
+	
 }
 
 

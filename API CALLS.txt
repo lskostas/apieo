@@ -1,3 +1,5 @@
+	   
+
 
 -http://localhost/apieo/api.php/clients
 methodos get

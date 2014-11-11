@@ -9,9 +9,14 @@ var rootURL = "http://localhost/apieo/api.php/clients";
 
 $(document).ready(function() {
     findAll();  
+	
+	
+   hide_user_data_table();
 
    /* Hide the html element userdata in order to be shown only after a search function renderList_search runs */
    hide_search_results_table();
+   
+  
 	
 // Register listeners
 $('#btn_api_1').click(function() {
@@ -151,6 +156,8 @@ $.ajax({
 
 function fetch_client_details(client_id) { 
 
+show_user_data_table(); // emfanizei to table
+
 var url="http://localhost/apieo/api.php/clients/"+client_id;
 $(".userdata tbody").html("");
 $.getJSON(url,function(data){
@@ -187,6 +194,7 @@ function deleteClient() {
 		//}
 		,
 		success: function(data, textStatus, jqXHR){
+		    findAll(); // kanei ksana refresh to dropdown 
 			alert('delete item successfully');
 		},
 		error: function(jqXHR, textStatus, errorThrown){
@@ -214,17 +222,18 @@ function addClient() {
 		//name: $('#name').val() ,
 		//url: $('#url').val()  
 		//}
-		,
-		success: function(data, textStatus, jqXHR){
-			
-			alert('Added item successfully');
+		 , 
+		 /* success: function(data, textStatus, jqXHR){ */
+		  success: function(data){
+			findAll(); // kanei ksana refresh to dropdown 
+			alert('Client Added successfully');
 			//$('#btnDelete').show();
 			//$('#wineId').val(data.id);
 		},
 		error: function(jqXHR, textStatus, errorThrown){
 			alert('addItem error: ' + textStatus);
 			
-		}
+		} 
 	});
 }
 
@@ -246,7 +255,8 @@ function UpdateClient() {
 		//url: $('#url').val()  
 	 	//}
 		,
-			success: function(data, textStatus, jqXHR){
+	    success: function(data, textStatus, jqXHR){
+		    findAll(); // kanei ksana refresh to dropdown 
 			alert('Item updated successfully');
 		},
 		error: function(jqXHR, textStatus, errorThrown){
@@ -341,6 +351,19 @@ function formToJSON_update() {
 		});
 }
 
+
+
+
+function hide_user_data_table() {
+  $('.userdata').hide(); 
+}
+
+function show_user_data_table() {
+  $('.userdata').show(); 
+}
+
+
+
 function show_search_results_table() {
   $('.userdata_search').show(); 
 }
@@ -356,13 +379,7 @@ function empty_search_table_html() {
 	
 
 
-function test() {
-alert("Before Send request");
-}
 
-function test2() {
-alert("end");
-}
 
 
 
