@@ -1,0 +1,26 @@
+
+-http://localhost/apieo/api.php/clients
+methodos get
+tou fernei olous
+
+-http://localhost/apieo/api.php/clients/22
+methodos get
+ferenei to pelati me ItemID 22
+
+
+
+
+-methodos get kai vazeis search path kai query px NEW2 einai to onoma client
+http://localhost/apieo/api.php/clients/search/NEW2
+
+
+
+
+
+
+
+
+
+
+
+
